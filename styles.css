@@ -1,0 +1,81 @@
+@font-face {
+  font-family: Orson-Light;
+  src: url(assets/sf-orson-casual.light.ttf);
+}
+
+@font-face {
+  font-family: Orson-Medium;
+  src: url(assets/sf-orson-casual.medium.ttf);
+}
+
+#App {
+  height: 30em;
+  width: 20em;
+  background-color: #264653;
+  text-align: center;
+  font: 100%/1.6 "Orson-Medium", "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#App.running {
+  background-color: #2a9d8f;
+}
+
+#time {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  font-size: 5em;
+  height: 45%;
+  color: white;
+}
+
+.buttons {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  height: 35%;
+}
+
+.button {
+  background-color: #e9c56a;
+  border-radius: 1.5em;
+  color: white;
+  display: flex;
+  font-size: 1.2em;
+  flex-flow: column-nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 2.8em;
+  width: 80%;
+}
+
+#start-button {
+  background-color: #2a9d8f;
+}
+
+#resume-button {
+  background-color: #e76f51;
+}
+
+#stop-button {
+  background-color: #f4a261;
+}
+
+#time-left {
+  color: white;
+}
+
+#time-left.hide {
+  color: #264653;
+}
+
+#resting {
+  color: #264653;
+}
+
+.button.hidden {
+  display: none;
+}
+

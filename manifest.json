@@ -1,0 +1,22 @@
+{
+    "manifest_version": 2,
+  
+    "name": "Pomodoro",
+    "description": "Pomodoro timer",
+    "version": "0.0.1",
+    "icons": {
+        "16": "/assets/tomato.png",
+        "48": "/assets/tomato.png",
+        "128": "/assets/tomato.png"
+      },
+    "browser_action": {
+      "default_popup": "popup.html",
+      "default_icon": "/assets/tomato.png"
+    },
+    "background": {
+        "scripts": [
+          "background.js"
+        ],
+        "persistent": true
+      }
+}
