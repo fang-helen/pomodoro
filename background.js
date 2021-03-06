@@ -1,9 +1,28 @@
+const memesLocation = 'assets/images/'
+const memes = [
+  'ant.jpg',
+  'bird.png',
+  'dog.jpg',
+  'dory.jpg',
+  'duck.jpg',
+  'goat.jpg',
+  'hedgehog.jpg',
+  'mouse.jpg',
+  'otter.jpg',
+  'seabass.jpg',
+  'turtle.jpg'
+];
+
 var stop_audio = new Audio('assets/music-box.mp3');
 var interval_audio = new Audio('assets/default.mp3');
 
 let workSecs = 25 * 60;
 let restSecs = 5 * 60;
 let totalIntervals = 5;
+
+// workSecs = 10;
+// restSecs = 5;
+// totalIntervals = 2;
 
 var currentIntervals = 1;
 var currentSecs = workSecs;
@@ -79,4 +98,8 @@ function stopTimer() {
   currentIntervals = 1;
   resting = false;
   currentSecs = workSecs;
+}
+
+function getImage() {
+  let meme = memes[Math.floor(Math.random() * memes.length)];
 }

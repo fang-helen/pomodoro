@@ -95,7 +95,7 @@ function tick() {
   document.getElementById('time').innerText = mins + ':' + seconds;
   
 }
-async function startTimer() {
+function startTimer() {
   chrome.runtime.sendMessage({greeting: "start"}, function(response) {});
 
   timer = window.setInterval(tick, 1000);
@@ -112,7 +112,7 @@ async function startTimer() {
   document.getElementById("pause-button").classList.remove('hidden');
 }
 
-async function resumeTimer() {
+function resumeTimer() {
   chrome.runtime.sendMessage({greeting: "start"}, function(response) {});
   timer = window.setInterval(tick, 1000);
   document.getElementById("App").classList.add('running');
@@ -139,7 +139,7 @@ function pauseTimer() {
 
 function stopTimer() {
   chrome.runtime.sendMessage({greeting: "stop"}, function(response) {});
-  
+
   window.clearInterval(timer);
   document.getElementById("App").classList.remove('running');
   document.getElementById('time-left').classList.add('hide');
