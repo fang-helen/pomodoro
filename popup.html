@@ -12,12 +12,24 @@
   </head>
   <body>
     <div id="main">
+      <div id="settings-bar">
+        <img id="settings-button" src="assets/settings.png"/>
+      </div>
+      <div id="settings-container">      
+        <div id="settings-options" class="hide-settings">
+          <div class="settings-line">I will work for <input id="x" class="input" type="text" value="25"> minutes</div>
+          <div class="settings-line">and rest for <input id="y" class="input" type="text" value="5"> minutes</div>
+          <div class="settings-line">for a total of <input id="z" class="input" type="text" value="5"></input> intervals.</div>
+          <div id="save-settings">Save</div>
+        </div>
+        
+
+      </div>
       <div id="time-container">
         <div id="time">25:00</div>
-        <img id="meme" src="assets/images/dog.jpg"/>
+        <img id="meme" src="assets/images/dog.jpg" alt="meme"/>
         <div id="time-left" class="hide">1</div>
       </div>
-      <!-- <div id="resting">Resting</div> -->
       <div class="buttons">
         <div class="button" id="start-button">Start</div>
         <div class="button hidden" id="pause-button">Pause</div>

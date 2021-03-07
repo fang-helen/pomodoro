@@ -1,4 +1,4 @@
-const memesLocation = 'assets/images/'
+const memesLocation = 'assets/images/';
 const memes = [
   'ant.jpg',
   'bird.png',
@@ -20,10 +20,6 @@ let workSecs = 25 * 60;
 let restSecs = 5 * 60;
 let totalIntervals = 5;
 
-workSecs = 10;
-restSecs = 5;
-totalIntervals = 2;
-
 var currentIntervals = 1;
 var currentSecs = workSecs;
 var resting = false;
@@ -40,7 +36,7 @@ chrome.runtime.onMessage.addListener(
     console.log(sender.tab ?
              "from a content script:" + sender.tab.url :
              "from the extension");
-    if (request.greeting == "status")
+    if (request.greeting == "status") {
       sendResponse({farewell: [currentSecs, 
         currentIntervals, 
         resting, paused, 
@@ -48,20 +44,24 @@ chrome.runtime.onMessage.addListener(
         restSecs, 
         totalIntervals, 
         getImage()]});
-    else if (request.greeting =="meme")
-        sendResponse({farewell: getImage()});
-    else if (request.greeting == "start") {  
+      return true;
+    }
+    else if (request.greeting == "meme")
+      sendResponse({farewell: getImage()});
+    else if (request.greeting == "start")
       startTimer();
-      return true;
-    }
-    else if (request.greeting == "pause") {
+    else if (request.greeting == "pause")
       pauseTimer();
-      return true;
-    }
-    else if (request.greeting == "stop") {
+    else if (request.greeting == "stop")
       stopTimer();
-      return true;
+    else if (request.greeting.includes("update")) {
+      let parts = request.greeting.split(" ");
+      workSecs = parts[1];
+      restSecs = parts[2];
+      totalIntervals = parts[3];
     }
+    sendResponse({farewell: 'done'});
+    return true;
 
  });
 
