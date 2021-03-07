@@ -20,9 +20,9 @@ let workSecs = 25 * 60;
 let restSecs = 5 * 60;
 let totalIntervals = 5;
 
-// workSecs = 10;
-// restSecs = 5;
-// totalIntervals = 2;
+workSecs = 10;
+restSecs = 5;
+totalIntervals = 2;
 
 var currentIntervals = 1;
 var currentSecs = workSecs;
@@ -41,7 +41,15 @@ chrome.runtime.onMessage.addListener(
              "from a content script:" + sender.tab.url :
              "from the extension");
     if (request.greeting == "status")
-      sendResponse({farewell: [currentSecs, currentIntervals, resting, paused, running, workSecs, restSecs, totalIntervals]});
+      sendResponse({farewell: [currentSecs, 
+        currentIntervals, 
+        resting, paused, 
+        running, workSecs, 
+        restSecs, 
+        totalIntervals, 
+        getImage()]});
+    else if (request.greeting =="meme")
+        sendResponse({farewell: getImage()});
     else if (request.greeting == "start") {  
       startTimer();
       return true;
@@ -102,4 +110,5 @@ function stopTimer() {
 
 function getImage() {
   let meme = memes[Math.floor(Math.random() * memes.length)];
+  return memesLocation + meme;
 }

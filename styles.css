@@ -8,16 +8,27 @@
   src: url(assets/sf-orson-casual.medium.ttf);
 }
 
-#App {
-  height: 30em;
-  width: 20em;
+#main {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  height: 40em;
+  width: 25em;
   background-color: #264653;
   text-align: center;
   font: 100%/1.6 "Orson-Medium", "Trebuchet MS", Helvetica, sans-serif;
 }
 
-#App.running {
+#main.running {
   background-color: #2a9d8f;
+}
+
+#time-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  height: 65%;
+  color: white;
 }
 
 #time {
@@ -25,8 +36,22 @@
   flex-flow: column nowrap;
   justify-content: center;
   font-size: 5em;
-  height: 45%;
-  color: white;
+  height: 70%;
+}
+
+#time.resting {
+  font-size: 1.5em;
+}
+
+#meme {
+  display: none;
+  height: 70%;
+  width: 100%;
+  object-fit: contain;
+}
+
+#meme.resting {
+  display: block;
 }
 
 .buttons {
@@ -35,7 +60,7 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  height: 35%;
+  height: 25%;
 }
 
 .button {
@@ -65,6 +90,7 @@
 
 #time-left {
   color: white;
+  margin-top: 1em;
 }
 
 #time-left.hide {
