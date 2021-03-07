@@ -104,9 +104,6 @@ function startTimer() {
   document.getElementById("main").classList.add('running');
   document.getElementById('time-left').innerText = 'Interval ' + currentIntervals + ' out of ' + totalIntervals;
   document.getElementById('time-left').classList.remove('hide');
-  if(!resting) {
-  } else {
-  }
 
   document.getElementById("start-button").classList.add('hidden');
   document.getElementById("pause-button").classList.remove('hidden');
@@ -116,8 +113,6 @@ function resumeTimer() {
   chrome.runtime.sendMessage({greeting: "start"}, function(response) {});
   timer = window.setInterval(tick, 1000);
   document.getElementById("main").classList.add('running');
-  if(!resting) {
-  }
 
   document.getElementById("resume-button").classList.add('hidden');
   document.getElementById("pause-button").classList.remove('hidden');
@@ -128,8 +123,6 @@ function pauseTimer() {
 
   window.clearInterval(timer);
   document.getElementById("main").classList.remove('running');
-  if(!resting) {
-  }
 
   document.getElementById("pause-button").classList.add('hidden');
   document.getElementById("resume-button").classList.remove('hidden');
@@ -160,17 +153,17 @@ function stopTimer() {
 }
 
 function setResting(setVal) {
-  if(setVal) {
+  resting = setVal;
+  if(resting) {
     document.getElementById('time').classList.add('resting');
     document.getElementById('meme').classList.add('resting');
   } else {
-    chrome.runtime.sendMessage({greeting: "start"}, function(response) {
+    chrome.runtime.sendMessage({greeting: "meme"}, function(response) {
       curMeme = response.farewell;
       document.getElementById('meme').src = curMeme;
       document.getElementById('time').classList.remove('resting');
       document.getElementById('meme').classList.remove('resting');
     });
-    
   }
-  resting = setVal;
+  
 }
